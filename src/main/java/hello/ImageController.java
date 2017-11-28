@@ -14,10 +14,11 @@ public class ImageController {
 
     @MessageMapping("/image")
     @SendTo("topic/images")
-    public String greeting(byte[] bytes) {
+    public String greeting(String msg) {
         LOGGER.info("Get image from bytes array.");
-        String response = Base64.encodeBase64String(bytes);
-        LOGGER.fine(response);
+        String response = Base64.encodeBase64String(msg.getBytes());
+        LOGGER.info("Convert image to Base64.");
+        LOGGER.info("image -> " + response);
         return response;
     }
 
