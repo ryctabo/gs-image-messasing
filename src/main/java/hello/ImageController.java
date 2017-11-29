@@ -22,7 +22,7 @@ public class ImageController {
         LOGGER.info("Get response format.");
         String response = String.format(FORMAT, new String(imageBase64));
         LOGGER.info("Response: " + response.substring(0, 50));
-        return new ImageResponse(response.substring(0, 50));
+        return new ImageResponse(response);
     }
 
 }
