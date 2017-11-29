@@ -33,7 +33,7 @@ function disconnect() {
 }
 
 function showImages(object) {
-    $('#greetings').append('<img src="' + object.imageSrc + '">');
+    $('#greetings').append('<td><img src="' + object.imageSrc + '"></td>');
 }
 
 $(function () {
