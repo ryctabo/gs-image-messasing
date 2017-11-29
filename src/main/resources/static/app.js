@@ -18,8 +18,8 @@ function connect() {
     stompClient.connect({}, function (frame) {
         setConnected(true);
         console.log('Connected: ' + frame);
-        stompClient.subscribe('/topic/images', function (imageBase64) {
-            showImages(imageBase64);
+        stompClient.subscribe('/topic/images', function (response) {
+            showImages(JSON.parse(response.body));
         });
     });
 }
@@ -32,8 +32,8 @@ function disconnect() {
     console.log('Disconnected!');
 }
 
-function showImages(imageBase64) {
-    $('#greetings').append('<img src="' + imageBase64 + '">');
+function showImages(object) {
+    $('#greetings').append('<img src="' + object.imageSrc + '">');
 }
 
 $(function () {
