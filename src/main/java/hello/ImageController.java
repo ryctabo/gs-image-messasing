@@ -16,7 +16,7 @@ public class ImageController {
     private static final String FORMAT = "data:image/png;base64,%s";
 
     @MessageMapping("/image")
-    @SendTo("topic/images")
+    @SendTo("/topic/images")
     public BinaryMessage greeting(String msg) {
         LOGGER.info("Get image and convert in Base64.");
         byte[] imageBase64 = Base64.encodeBase64(msg.getBytes());
